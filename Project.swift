@@ -18,7 +18,7 @@ let project = Project(
             ),
             sources: ["TuistDemo/Sources/**"],
             resources: ["TuistDemo/Resources/**"],
-            dependencies: []
+            dependencies: [.external(name: "RealmSwift")]
         ),
         .target(
             name: "TuistDemoTests",
