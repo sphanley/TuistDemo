@@ -2,6 +2,9 @@ import ProjectDescription
 
 let project = Project(
     name: "TuistDemo",
+    packages: [
+        .local(path: "LocalPackages/RealmSwift")
+    ],
     targets: [
         .target(
             name: "TuistDemo",
@@ -18,7 +21,9 @@ let project = Project(
             ),
             sources: ["TuistDemo/Sources/**"],
             resources: ["TuistDemo/Resources/**"],
-            dependencies: [.external(name: "RealmSwift")]
+            dependencies: [
+                .package(product: "RealmSwift")
+            ]
         ),
         .target(
             name: "TuistDemoTests",
@@ -28,7 +33,9 @@ let project = Project(
             infoPlist: .default,
             sources: ["TuistDemo/Tests/**"],
             resources: [],
-            dependencies: [.target(name: "TuistDemo")]
+            dependencies: [
+                .target(name: "TuistDemo")
+            ]
         ),
     ]
 )
